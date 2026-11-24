@@ -129,6 +129,16 @@ app.post('/api/ai/recommend', requireAuth, async (req, res) => {
 });
 
 app.get('/api/health', (req,res) => res.json({ status: 'ok', aiConfigured: Boolean(process.env.OPENAI_API_KEY) }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.get('/styles.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'styles.css'));
+});
+
+app.get('/app.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'app.js'));
+});
 app.use((err, req, res, next) => { console.error(err); res.status(500).json({ error: 'Something went wrong.' }); });
 init().then(() => app.listen(PORT, () => console.log(`ScholarMatch running at http://localhost:${PORT}`))).catch(err => { console.error('Startup failed:', err); process.exit(1); });
