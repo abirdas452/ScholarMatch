@@ -1,0 +1,14 @@
+ScholarMatch চালানোর সহজ নিয়ম
+
+১) Node.js 20+ ইনস্টল থাকতে হবে।
+২) Project folder-এ Terminal খুলে লিখুন: npm install
+৩) .env.example ফাইলটি কপি করে .env নাম দিন।
+৪) .env ফাইলে SESSION_SECRET, ADMIN_EMAIL, ADMIN_PASSWORD বসান।
+৫) AI চালাতে OPENAI_API_KEY-তে নিজের API key দিন। Key কখনো index.html বা app.js-এ দেবেন না।
+৬) Terminal-এ লিখুন: npm start
+৭) Browser-এ খুলুন: http://localhost:3000
+
+Admin login: .env ফাইলে দেওয়া ADMIN_EMAIL ও ADMIN_PASSWORD।
+AI key না দিলে scholarship matching চলবে, তবে AI panel স্পষ্টভাবে preview দেখাবে; live AI নয়।
+
+নিরাপত্তা: .env ফাইল কাউকে পাঠাবেন না বা GitHub-এ upload করবেন না। Production-এ HTTPS, CSRF protection, email verification, password reset এবং security review যোগ করতে হবে।

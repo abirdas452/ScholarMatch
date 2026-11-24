@@ -1,0 +1,24 @@
+SCHOLARMATCH — Chrome-এ Login + Admin + AI-সহ চালানোর নিয়ম
+
+এটি শুধু index.html ডাবল-ক্লিক করে চালানো যাবে না, কারণ Login, Database, Admin permission এবং AI-এর জন্য backend server দরকার।
+
+প্রথমবার:
+1. ZIP Extract করুন।
+2. Node.js 20 বা নতুন সংস্করণ ইনস্টল করুন: https://nodejs.org/
+3. START_SCHOLARMATCH.bat ডাবল-ক্লিক করুন।
+4. প্রথমবার .env ফাইল Notepad-এ খুলবে।
+5. ADMIN_EMAIL-এ আপনার admin email দিন।
+6. ADMIN_PASSWORD-এ শক্তিশালী password দিন।
+7. SESSION_SECRET-এ লম্বা random secret দিন।
+8. AI চালাতে OPENAI_API_KEY-তে আপনার API key দিন। API key না থাকলে live AI চলবে না।
+9. .env Save করে Notepad বন্ধ করুন।
+10. আবার START_SCHOLARMATCH.bat ডাবল-ক্লিক করুন। Chrome-এ http://localhost:3000 খুলবে।
+
+পরের বার:
+START_SCHOLARMATCH.bat ডাবল-ক্লিক করলেই server চালু হবে এবং Chrome খুলবে।
+
+মনে রাখবেন:
+- কালো Terminal/Command Prompt window বন্ধ করলে server বন্ধ হয়ে যাবে।
+- একই কম্পিউটারে চলবে; এটি public website hosting নয়।
+- .env বা API key কারও সঙ্গে শেয়ার করবেন না।
+- Admin login হবে .env-এ দেওয়া ADMIN_EMAIL ও ADMIN_PASSWORD দিয়ে।
