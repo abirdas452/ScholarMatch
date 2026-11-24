@@ -28,7 +28,7 @@ async function init() {
   await run(`CREATE TABLE IF NOT EXISTS scholarships (id INTEGER PRIMARY KEY AUTOINCREMENT, source_id TEXT, name TEXT NOT NULL, provider TEXT NOT NULL, min_cgpa REAL NOT NULL DEFAULT 0, department TEXT NOT NULL DEFAULT 'All', need_based TEXT NOT NULL DEFAULT 'no', gender TEXT NOT NULL DEFAULT 'All', amount_bdt INTEGER NOT NULL DEFAULT 0, deadline TEXT, description TEXT, created_at TEXT DEFAULT CURRENT_TIMESTAMP)`);
   const count = await get('SELECT COUNT(*) AS n FROM scholarships');
   if (!count.n) {
-    const csv = fs.readFileSync(path.join(__dirname, 'data', 'scholarships.csv'), 'utf8');
+    const csv = fs.readFileSync(path.join(__dirname, 'scholarships.csv'), 'utf8');
     const rows = parse(csv, { columns: true, skip_empty_lines: true, bom: true });
     for (const s of rows) await run('INSERT INTO scholarships (source_id,name,provider,min_cgpa,department,need_based,gender,amount_bdt,deadline,description) VALUES (?,?,?,?,?,?,?,?,?,?)', [s.id, s.name, s.provider, Number(s.min_cgpa)||0, s.department||'All', (s.need_based||'no').toLowerCase(), s.gender||'All', Number(s.amount_bdt)||0, s.deadline||null, s.description||'']);
   }
